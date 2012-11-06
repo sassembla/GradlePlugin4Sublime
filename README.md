@@ -19,6 +19,7 @@ From shell/Terminal (on OS X, Linux or Cygwin), via git:
     
 The plugin should be picked up automatically. If not, restart Sublime Text.
 
+**! Please set your gradle/gradle.bat path first. see [Setting](#Setting) !**
 
 ## Usage
 * Open "gradlie-ruled" folder which includes "build.gradle" with Sublime Text 2.
@@ -34,12 +35,12 @@ You can see the progress of Gradle-command through Sublime's console.
 	^ + ` > see progress of Gradle-command.
 
 ## Other utility(experimental)
-There are some utilities not included in Gradle.
+There are some additional utilities.
 
 	Command Palette > type "GradleUtil open Test Report" >   
 	  plugin will open the result of the tests of current project.(if exist!)
 	
-This is applied for Mac OS X yet.
+This is applied for Mac OS X only, yet.
 
 
 
@@ -55,7 +56,7 @@ open the specific folder that includes the "build.gradle" you want to use.
 
 ## Settings
 This plugin strongly depends on Gradle.  
-You can customize the path of gradle.bin via below,
+You should customize the path of gradle/gradle.bat via below,
 
 `Preferences > Package Settings > Gradle > Settings - Default (or Settings - User)`
 
