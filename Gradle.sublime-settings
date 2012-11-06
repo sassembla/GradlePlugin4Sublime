@@ -1,4 +1,6 @@
 {
+	"schema_version": "1.0",
+
 	"path" : {
 		"gradle" : "/usr/local/bin/gradle"
 	},
@@ -36,7 +38,7 @@
 	},
 
 	"utility" : {
-		"webBrowserApp"	:	"Safari.app"
+		"webBrowseApp"	:	"Safari.app"
 	}
 
 

@@ -105,10 +105,10 @@ class Gtestclasses(sublime_plugin.TextCommand):
 # utility
 class Gopentest(sublime_plugin.TextCommand):
   def run (self, edit) :
-    targetAppPath = sublime.load_settings("Gradle.sublime-settings").get("utility").get('webBrowserApp')
+    targetAppPath = sublime.load_settings("Gradle.sublime-settings").get("utility").get('webBrowseApp')
     testFilePathOrEmpty = GetBuildFolderPath.getBuildFolderPath(self.view)
     
-    print "this util only work in Mac yet."
+    print "This util only work on Mac yet."
 
     if (testFilePathOrEmpty[0]):
       #index.html位置を直書きという暴挙
