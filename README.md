@@ -6,7 +6,7 @@ Input gradle-command to your "build.gradle" through Sublime Text 2.
 
 ## Prerequisite
 Please check below:  
-* Gradle is installed and enable. See [Gradle.org](http://gradle.org/)
+* Gradle should be installed and enabled. Visit [Gradle.org](http://gradle.org/)
 
 
 ## Installation
@@ -19,7 +19,7 @@ From shell/Terminal (on OS X, Linux or Cygwin), via git:
     
 The plugin should be picked up automatically. If not, restart Sublime Text.
 
-**! Please set your gradle/gradle.bat path first. see [Setting](#setting) !**
+**! Please set your gradle/gradle.bat path first. see [Settings](#settings) !**
 
 ## Usage
 * Open "gradlie-ruled" folder which includes "build.gradle" with Sublime Text 2.
