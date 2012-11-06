@@ -1,0 +1,63 @@
+[
+    {   "caption": "Gradle: assemble",
+        "command": "gassemble"
+    }
+    ,{   "caption": "Gradle: build",
+        "command": "gbuild"
+    }
+    ,{   "caption": "Gradle: buildDependents",
+        "command": "gbuilddependents"
+    }
+    ,{   "caption": "Gradle: buildNeeded",
+        "command": "gbuildneeded"
+    }
+    ,{   "caption": "Gradle: classes",
+        "command": "gclasses"
+    }
+    ,{   "caption": "Gradle: clean",
+        "command": "gclean"
+    }
+    ,{   "caption": "Gradle: jar",
+        "command": "gjar"
+    }
+    ,{   "caption": "Gradle: testClasses",
+        "command": "gtestclasses"
+    }
+    ,{   "caption": "Gradle: javadoc",
+        "command": "gjavadoc"
+    }
+    ,{   "caption": "Gradle: dependencies",
+        "command": "gdependencies"
+    }
+    ,{   "caption": "Gradle: help",
+        "command": "ghelp"
+    }
+    ,{   "caption": "Gradle: projects",
+        "command": "gprojects"
+    }
+    ,{   "caption": "Gradle: properties",
+        "command": "gproperties"
+    }
+    ,{   "caption": "Gradle: tasks",
+        "command": "gtasks"
+    }
+    ,{   "caption": "Gradle: check",
+        "command": "gcheck"
+    }
+    ,{
+        "caption": "Gradle: test",
+        "command": "gtest"
+    }
+
+
+    ,{
+        "caption": "GradlePlugin: open Test Report",
+        "command": "gopentest"
+    }
+
+
+    ,{
+        "caption": "GradlePlugin: debugggg",
+        "command": "testing"
+    }
+]

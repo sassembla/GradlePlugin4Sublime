@@ -1,0 +1,53 @@
+[
+    {
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "Gradle",
+                "children":
+                [
+                    {"id": "Gradle", "caption": "Build current project", "command": "gbuild" },
+                    {"id": "Gradle", "caption": "Test current project", "command": "gtest" },
+                    {"id": "Gradle", "caption": "Open Test Report", "command": "gopentest" },
+                    {"id": "Gradle", "caption": "Testing", "command": "testing" }
+
+                ]
+            }
+        ]
+    }
+
+    ,{
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "Gradle",
+                        "children":
+                        [
+                            {
+                                "command": "open_file",
+                                "args": {"file": "${packages}/Gradle/Gradle.sublime-settings"},
+                                "caption": "Settings – Default"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {"file": "${packages}/User/Gradle.sublime-settings"},
+                                "caption": "Settings – User"
+                            },
+                            { "caption": "-" }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,44 @@
+{
+	"path" : {
+		"gradle" : "/usr/local/bin/gradle"
+	},
+
+
+  "command" : {
+		// Build tasks
+		// -----------
+		"assemble"	:	"assemble",							// - Assembles all Jar, War, Zip, and Tar archives.
+		"build"	:	"build",										// - Assembles and tests this project.
+		"buildDependents"	:	"buildDependents",// - Assembles and tests this project and all projects that depend on it.
+		"buildNeeded"	:	"buildNeeded",				// - Assembles and tests this project and all projects it depends on.
+		"classes"	:	"classes",								// - Assembles the main classes.
+		"clean"	:	"clean",										// - Deletes the build directory.
+		"jar"	:	"jar",												// - Assembles a jar archive containing the main classes.
+		"testClasses"	:	"testClasses",				// - Assembles the test classes.
+
+		// Documentation tasks
+		// -------------------
+		"javadoc"	:	"javadoc",								// - Generates Javadoc API documentation for the main source code.
+
+		// Help tasks
+		// ----------
+		"dependencies"	:	"dependencies",			// - Displays the dependencies of root project 'Gradle'.
+		"help"	:	"help",											// - Displays a help message
+		"projects"	:	"projects",							// - Displays the sub-projects of root project 'Gradle'.
+		"properties"	:	"properties",					// - Displays the properties of root project 'Gradle'.
+		"tasks"	:	"tasks",										// - Displays the tasks runnable from root project 'Gradle' (some of the displayed tasks may belong to subprojects).
+
+		// Verification tasks
+		// ------------------
+		"check"	:	"check",		// - Runs all checks.
+		"test"	:	"test"			// - Runs the unit tests.
+
+	},
+
+	"utility" : {
+		"webBrowserApp"	:	"Safari.app"
+	}
+
+
+
+}

@@ -1,0 +1,4 @@
+[
+	{ "keys": ["super+alt+b"], "command": "gbuild" }
+	,{ "keys": ["super+alt+t"], "command": "gtest" }
+]
