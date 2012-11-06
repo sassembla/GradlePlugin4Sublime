@@ -19,7 +19,7 @@ From shell/Terminal (on OS X, Linux or Cygwin), via git:
     
 The plugin should be picked up automatically. If not, restart Sublime Text.
 
-**! Please set your gradle/gradle.bat path first. see [Setting](#setting) !**
+**! Please set your gradle/gradle.bat path first. see [Settings](#settings) !**
 
 ## Usage
 * Open "gradlie-ruled" folder which includes "build.gradle" with Sublime Text 2.
