@@ -9,8 +9,7 @@
                 [
                     {"id": "Gradle", "caption": "Build current project", "command": "gbuild" },
                     {"id": "Gradle", "caption": "Test current project", "command": "gtest" },
-                    {"id": "Gradle", "caption": "Open Test Report", "command": "gopentest" },
-                    {"id": "Gradle", "caption": "Testing", "command": "testing" }
+                    {"id": "Gradle", "caption": "Open Test Report", "command": "gopentest" }
 
                 ]
             }
@@ -35,7 +34,7 @@
                         [
                             {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/Gradle/Gradle.sublime-settings"},
+                                "args": {"file": "${packages}/GradlePlugin4Sublime/Gradle.sublime-settings"},
                                 "caption": "Settings – Default"
                             },
                             {
