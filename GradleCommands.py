@@ -3,7 +3,7 @@
 import sublime
 import sublime_plugin
 
-from Gradle import BuildThread, ThreadProgress, GetBuildFilePath, GetBuildFolderPath
+from Gradle import BuildThread, ThreadProgress, Gradle
 
 class Gassemble(sublime_plugin.TextCommand):
   def run (self, edit) :
@@ -106,7 +106,7 @@ class Gtestclasses(sublime_plugin.TextCommand):
 class Gopentest(sublime_plugin.TextCommand):
   def run (self, edit) :
     targetAppPath = sublime.load_settings("Gradle.sublime-settings").get("utility").get('webBrowseApp')
-    testFilePathOrEmpty = GetBuildFolderPath.getBuildFolderPath(self.view)
+    testFilePathOrEmpty = Gradle.getBuildFolderPath(self.view)
     
     print "This util only work on Mac yet."
 
@@ -121,12 +121,12 @@ class Gopentest(sublime_plugin.TextCommand):
       #statusBarに経過表示
       ThreadProgress(thread, 'gradlePlugin opening '+ path + "...", 'gradlePlugin done.')
 
-
+# 実行コマンド
 class RunCommand():
   @classmethod
   def runCommand(self, view, command) :
-    gradle = sublime.load_settings("Gradle.sublime-settings").get("path").get('gradle')
-    buildFilePath = GetBuildFilePath.getBuildFilePath(view)
+    gradle = Gradle.getGradlePath(view)
+    buildFilePath = Gradle.getBuildDotGradle(view)
 
   	# 別スレッドで実行
     thread = BuildThread(gradle + " " + command + " " + buildFilePath)

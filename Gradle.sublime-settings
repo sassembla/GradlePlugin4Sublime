@@ -1,12 +1,22 @@
 {
 	"schema_version": "1.0",
 
-	"path" : {
-		"gradle" : "/usr/local/bin/gradle"
-	},
+	/*
+		use gradlew that located into the project.
+		default : true.
+	*/
+	"use_gradlew" : true,
+
+	/*
+		use gradle that located at.
+		if you want to check which gradle will use,
+		type "GradlePlugin:which gradle " in Command Palette.
+	*/
+	"gradlePath" : "/usr/local/bin/gradle",
+	
 
 
-  "command" : {
+	"command" : {
 		// Build tasks
 		// -----------
 		"assemble"	:	"assemble",							// - Assembles all Jar, War, Zip, and Tar archives.
