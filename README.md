@@ -34,13 +34,33 @@ You can see the progress of Gradle-command through Sublime's console.
 
 	^ + ` > see progress of Gradle-command.
 
-## Other utility(experimental)
-There are some additional utilities.
+## Supported Gradle commands
+These commands are supported. Default setting as [ apply plugin:"java" ]
 
-	Command Palette > type "GradleUtil open Test Report" >   
-	  plugin will open the result of the tests of current project.(if exist!)
-	
-This is applied for Mac OS X only, yet.
+	assemble	
+	build
+	buildDependents
+	buildNeeded
+	classes
+	clean
+	jar
+	testClasses
+	javadoc	
+	dependencies	
+	help
+	projects	
+	properties
+	tasks	
+	check
+	test
+
+and there are some plugin utilities.  
+
+	manual input  
+	which gradle  
+	open Test Report(experimental, only for Mac OS X.)  
+
+
 
 
 
