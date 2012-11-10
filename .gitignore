@@ -8,3 +8,5 @@ Gradle.pyc
 GradleCommands.pyc
 
 testing.pyc
+
+build/*

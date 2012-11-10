@@ -2,7 +2,7 @@
 
 import sublime
 import sublime_plugin
-
+from functools import partial
 from Gradle import BuildThread, ThreadProgress, Gradle
 
 class Gassemble(sublime_plugin.TextCommand):
@@ -103,6 +103,21 @@ class Gtestclasses(sublime_plugin.TextCommand):
 
 
 # utility
+class Ginput(sublime_plugin.TextCommand):
+  def run(self, edit, format=None, prompt=False):
+    if prompt:
+      self.view.window().show_input_panel(
+        """"gradle" + """,
+        str(format) if format else '',
+        partial(self.run, edit),
+        None, None
+      )
+
+    command = format
+    RunCommand.runCommand(self.view, command)
+      
+
+    
 class Gopentest(sublime_plugin.TextCommand):
   def run (self, edit) :
     targetAppPath = sublime.load_settings("Gradle.sublime-settings").get("utility").get('webBrowseApp')
@@ -120,6 +135,8 @@ class Gopentest(sublime_plugin.TextCommand):
 
       #statusBarに経過表示
       ThreadProgress(thread, 'gradlePlugin opening '+ path + "...", 'gradlePlugin done.')
+
+
 
 # 実行コマンド
 class RunCommand():

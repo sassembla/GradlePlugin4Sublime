@@ -76,6 +76,13 @@
 
     ,{
         
+        "caption": "GradlePlugin: manual Input",
+        "command": "ginput",
+        "args": {"prompt": true}
+    }
+
+    ,{
+        
         "caption": "GradlePlugin: open Test Report",
         "command": "gopentest"
     }
