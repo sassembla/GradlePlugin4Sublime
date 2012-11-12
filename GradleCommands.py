@@ -123,7 +123,7 @@ class Gopentest(sublime_plugin.TextCommand):
     targetAppPath = sublime.load_settings("Gradle.sublime-settings").get("utility").get('webBrowseApp')
     testFilePathOrEmpty = Gradle.getBuildFolderPath(self.view)
     
-    print "This util only work on Mac yet."
+    print "This util only work on Mac."
 
     if (testFilePathOrEmpty[0]):
       #index.html位置を直書きという暴挙

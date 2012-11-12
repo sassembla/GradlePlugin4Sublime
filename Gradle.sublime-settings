@@ -1,11 +1,13 @@
 {
-	"schema_version": "1.0",
+	"schema_version": "1.1",
 
 	/*
 		use gradlew that located into the project.
 		default : true.
 	*/
 	"use_gradlew" : true,
+
+
 
 	/*
 		use gradle that located at.
@@ -14,7 +16,10 @@
 	*/
 	"gradlePath" : "/usr/local/bin/gradle",
 	
-
+	"optional" : {
+		"timeoutEnable" : true,
+		"timeLimit" : 100000	//msec
+	},
 
 	"command" : {
 		// Build tasks
@@ -50,7 +55,5 @@
 	"utility" : {
 		"webBrowseApp"	:	"Safari.app"
 	}
-
-
 
 }

@@ -160,45 +160,56 @@ class BuildThread(threading.Thread):
     #       sys.stdout.write(out)
     #       sys.stdout.flush()
 
-  def killed(self):
+
+  # プロセスの強制終了
+  def kill(self):
     os.killpg(self.process.pid, signal.SIGTERM)
 
 
 # スレッドの監視と進捗表示を行う
 class ThreadProgressObserver():
   def __init__(self, thread, message):
-    # threadを生存確認のために保持
     self.thread = thread
-
-    # メッセージ
     self.message = message
+    
+    self.timeCount = 0
+
+    self.timeoutEnabled = sublime.load_settings("Gradle.sublime-settings").get('optional').get('timeoutEnable')
+    if (self.timeoutEnabled):
+      self.timeLimit = sublime.load_settings("Gradle.sublime-settings").get('optional').get('timeLimit')
 
     self.addend = 1
     self.size = 8
 
-    # 指定タイミング後にMainThreadで実行
     sublime.set_timeout(lambda: self.run(0), 100)
 
   def run(self, i):
+
+    
+    if (self.timeoutEnabled):
+      if (self.timeLimit == self.timeCount*100):
+        self.thread.kill()
+        self.message_addition = 'with timeout. %smsec elapssed' % (self.timeLimit)
+        sublime.status_message('gradle %s finished. %s' % (self.message, self.message_addition))
+        return
+
     if not self.thread.is_alive():
-      addition = ""
-        
-      sublime.status_message('gradle %s finished. %s' % (self.message, addition))
+      sublime.status_message('gradle %s finished. ' % self.message)
       return
 
-      
+
+    self.timeCount = self.timeCount + 1
+
 
     before = i % self.size
     after = (self.size - 1) - before
     sublime.status_message('gradle %s running... [%s=%s]' % \
         (self.message, ' ' * before, ' ' * after))
 
-    # カーソルをふらふらさせる
     if not after:
         self.addend = -1
     if not before:
         self.addend = 1
     i += self.addend
 
-    # 100後に再度実行(ループ)
     sublime.set_timeout(lambda: self.run(i), 100)
