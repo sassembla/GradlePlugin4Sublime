@@ -3,7 +3,7 @@
 import sublime
 import sublime_plugin
 from functools import partial
-from Gradle import BuildThread, ThreadProgress, Gradle
+from Gradle import BuildThread, ThreadProgressObserver, Gradle
 
 class Gassemble(sublime_plugin.TextCommand):
   def run (self, edit) :
@@ -133,8 +133,8 @@ class Gopentest(sublime_plugin.TextCommand):
       thread = BuildThread("open" + " " + "-a" + " " + targetAppPath + " " + path)
       thread.start()
 
-      #statusBarに経過表示
-      ThreadProgress(thread, 'gradlePlugin opening '+ path + "...", 'gradlePlugin done.')
+      #監視 + 表示
+      ThreadProgressObserver(thread, path)
 
 
 
@@ -149,5 +149,5 @@ class RunCommand():
     thread = BuildThread(gradle + " " + command + " " + buildFilePath)
     thread.start()
 
-    #statusBarに経過表示
-    ThreadProgress(thread, 'gradle '+command+" running...", 'gradle '+command+" Done.")
+    #監視 + 表示
+    ThreadProgressObserver(thread, command)

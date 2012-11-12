@@ -1,6 +1,7 @@
 # coding=UTF-8
 
 import os
+import signal
 import sys
 import sublime
 import sublime_plugin
@@ -147,8 +148,8 @@ class BuildThread(threading.Thread):
 
   def run(self):
     # run command
-    process = subprocess.Popen(shlex.split(self.command.encode('utf8')), stdout=subprocess.PIPE)
-    for line in process.stdout:
+    self.process = subprocess.Popen(shlex.split(self.command.encode('utf8')), stdout=subprocess.PIPE, preexec_fn=os.setsid)
+    for line in self.process.stdout:
       print line
     # # processの末尾をread 微妙にロックする、tailっぽい機構
     # while True:
@@ -159,27 +160,37 @@ class BuildThread(threading.Thread):
     #       sys.stdout.write(out)
     #       sys.stdout.flush()
 
+  def killed(self):
+    os.killpg(self.process.pid, signal.SIGTERM)
 
-# this method is replica of Package Control. this is verrrry good Method for express "something is running".
-class ThreadProgress():
-  def __init__(self, thread, message, success_message):
+
+# スレッドの監視と進捗表示を行う
+class ThreadProgressObserver():
+  def __init__(self, thread, message):
+    # threadを生存確認のために保持
     self.thread = thread
 
+    # メッセージ
     self.message = message
-    self.success_message = success_message
-    
+
     self.addend = 1
     self.size = 8
+
+    # 指定タイミング後にMainThreadで実行
     sublime.set_timeout(lambda: self.run(0), 100)
 
   def run(self, i):
     if not self.thread.is_alive():
-        sublime.status_message(self.success_message)
-        return
+      addition = ""
+        
+      sublime.status_message('gradle %s finished. %s' % (self.message, addition))
+      return
+
+      
 
     before = i % self.size
     after = (self.size - 1) - before
-    sublime.status_message('%s [%s=%s]' % \
+    sublime.status_message('gradle %s running... [%s=%s]' % \
         (self.message, ' ' * before, ' ' * after))
 
     # カーソルをふらふらさせる
@@ -189,5 +200,5 @@ class ThreadProgress():
         self.addend = 1
     i += self.addend
 
-    # 100後に再度実行
+    # 100後に再度実行(ループ)
     sublime.set_timeout(lambda: self.run(i), 100)

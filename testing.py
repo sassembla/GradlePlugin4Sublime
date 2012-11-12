@@ -68,7 +68,7 @@ class BuildThread(threading.Thread):
   def run(self):
     # run command
     process = subprocess.Popen(shlex.split(self.command.encode('utf8')), stdout=subprocess.PIPE)
-    
+    # リアルタイムにでるんだけど結構重さに引っ張られてロックする
     while True:
       out = process.stdout.read(1)
       if out == '' and process.poll() != None:
