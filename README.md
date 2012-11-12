@@ -1,4 +1,4 @@
-# Gradle plugin for Sublime Text 2
+# Gradle plugin for Sublime Text 2 v1.0
 
 This is a plugin for the [Sublime Text 2](http://www.sublimetext.com/) text editor.   
 Input gradle-command to your "build.gradle" through Sublime Text 2.

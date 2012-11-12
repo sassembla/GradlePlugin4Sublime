@@ -11,7 +11,7 @@ import threading
 import glob
 import string
 
-
+# Gradle plugin for SublimeText2
 class Gradle(sublime_plugin.TextCommand):
   def run (self, edit) :
     print "Welcome to the GradlePlugin!"

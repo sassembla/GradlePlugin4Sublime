@@ -1,10 +1,6 @@
 [
+    
     {
-        "caption": "GradlePlugin: which gradle",
-        "command": "gradle"
-    }
-
-    ,{
         "caption": "Gradle: assemble",
         "command": "gassemble"
     }
@@ -73,25 +69,18 @@
         "command": "gtest"
     }
 
-
     ,{
-        
-        "caption": "GradlePlugin: manual Input",
+        "caption": "GradlePlugin: which gradle (from current project)",
+        "command": "gradle"
+    }
+    ,{   
+        "caption": "GradlePlugin: manual input",
         "command": "ginput",
         "args": {"prompt": true}
     }
-
-    ,{
-        
+    ,{   
         "caption": "GradlePlugin: open Test Report",
         "command": "gopentest"
     }
 
-
-
-    ,{
-        
-        "caption": "GradlePlugin: debugggg",
-        "command": "testing"
-    }
 ]
