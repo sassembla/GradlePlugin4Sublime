@@ -7,8 +7,6 @@
 	*/
 	"use_gradlew" : true,
 
-
-
 	/*
 		use gradle that located at.
 		if you want to check which gradle will use,
@@ -18,14 +16,14 @@
 	
 	"optional" : {
 		"timeoutEnable" : true,
-		"timeLimit" : 100000	//msec
+		"timeLimit" : 60000	//msec
 	},
 
 	"command" : {
 		// Build tasks
 		// -----------
 		"assemble"	:	"assemble",							// - Assembles all Jar, War, Zip, and Tar archives.
-		"build"	:	"build",										// - Assembles and tests this project.
+		"build"	:	"build -d",										// - Assembles and tests this project.
 		"buildDependents"	:	"buildDependents",// - Assembles and tests this project and all projects that depend on it.
 		"buildNeeded"	:	"buildNeeded",				// - Assembles and tests this project and all projects it depends on.
 		"classes"	:	"classes",								// - Assembles the main classes.
@@ -48,7 +46,7 @@
 		// Verification tasks
 		// ------------------
 		"check"	:	"check",		// - Runs all checks.
-		"test"	:	"test"			// - Runs the unit tests.
+		"test"	:	"test -d"			// - Runs the unit tests.
 
 	},
 

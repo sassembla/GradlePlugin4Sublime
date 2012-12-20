@@ -49,7 +49,6 @@ class Gradle(sublime_plugin.TextCommand):
       if currentFile.startswith(folder):  # フォルダの一致
         currentFolder = folder
 
-
     # buildフォルダを探す
     os.chdir(currentFolder)
     buildFolder = glob.glob("build")
@@ -191,6 +190,7 @@ class ThreadProgressObserver():
         self.thread.kill()
         self.message_addition = 'with timeout. %smsec elapssed' % (self.timeLimit)
         sublime.status_message('gradle %s finished. %s' % (self.message, self.message_addition))
+        print 'gradle %s finished. %s' % (self.message, self.message_addition)
         return
 
     if not self.thread.is_alive():
